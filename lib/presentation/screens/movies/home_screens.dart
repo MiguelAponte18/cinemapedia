@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../../../config/constants/environment.dart';
+
 
 
 
@@ -11,11 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       body: Center(
-        child: Container(
-          color: Colors.blue,
-          width: 600,
-          height: 600,
-        ),
+        child: Text(Environment.theMovieDbKey)
       ),
     );
   }
