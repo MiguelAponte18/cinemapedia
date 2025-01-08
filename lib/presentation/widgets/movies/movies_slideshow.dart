@@ -81,14 +81,14 @@ class _Slide extends StatelessWidget {
           ),
           Positioned(
             left: 15,
-            bottom: 15,
-            child: Text(movie.title,style: TextStyle(
+            bottom: 25,
+            child: Text(movie.title,style: const TextStyle(
               color: Colors.white,
               shadows: [
                 Shadow(
                   offset: Offset(2.0,2.0),
                   blurRadius: 4.0,
-                  color:const Color.fromARGB(225, 0, 0, 0)
+                  color:Color.fromARGB(225, 0, 0, 0)
 
               )]),))
         ]

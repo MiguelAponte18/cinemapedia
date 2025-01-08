@@ -16,9 +16,7 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _HomeView extends ConsumerStatefulWidget {
-  const _HomeView({
-    super.key,
-  });
+  const _HomeView( );
 
   @override
   _HomeViewState createState() => _HomeViewState();
@@ -54,9 +52,7 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     final topRatedMovies = ref.watch(topRatedMoviesProvider);
     final upComingMovies = ref.watch(upComingMoviesProvider);
 
-    return Visibility(
-      visible: initialLoading,
-      child: CustomScrollView(
+    return CustomScrollView(
         slivers: [
           //los hijos de slivevers tienen que se widgets sliver
       
@@ -122,7 +118,6 @@ class _HomeViewState extends ConsumerState<_HomeView> {
             },
           )),
         ],
-      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cinemapedia/config/helpers/human_formats.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../config/domain/entities/movie.dart';
 
@@ -94,7 +95,10 @@ final Movie movie;
                    child: const Center( child: CircularProgressIndicator(strokeWidth: 2,)),
                  );
                   }
-                  return FadeIn(child: child);
+                  return GestureDetector(
+                    onTap: () => context.push('/movie/${movie.id}'),  //asignandole la navegacion a la imagen con el paramtro de la id de la pelicula
+                    child: FadeIn(child: child)
+                    );
                 },
               ),
             ),
