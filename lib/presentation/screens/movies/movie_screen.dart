@@ -1,3 +1,5 @@
+import 'package:cinemapedia/config/domain/entities/actor.dart';
+import 'package:cinemapedia/presentation/providers/actors/actors_provider.dart';
 import 'package:cinemapedia/presentation/providers/movies/movie_info_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,6 +22,7 @@ class MovieScreenState extends ConsumerState<MovieScreen> {
   void initState() {
        super.initState();
        ref.read(movieInfoProvider.notifier).loadMovie(widget.movieid);
+       ref.read(actorProvider.notifier).loadActors(widget.movieid);
   }
   @override
   Widget build(BuildContext context) {
@@ -46,18 +49,18 @@ class MovieScreenState extends ConsumerState<MovieScreen> {
 
 
 class _MovieDetails extends StatelessWidget {
-  const _MovieDetails({super.key, required this.movie});
+  const _MovieDetails({required this.movie});
 final Movie movie;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final textStyle = Theme.of(context).textTheme;
-    
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children:  [
         Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -92,11 +95,11 @@ final Movie movie;
 
         //generos de la pelicula
         Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: Wrap(
             children: [
               ...movie.genreIds.map((gender) => Container(
-                margin: EdgeInsets.only(right: 10),
+                margin: const EdgeInsets.only(right: 10),
                 child: Chip(
                   label: Text(gender),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -105,14 +108,83 @@ final Movie movie;
             ],
           ),
           ),
-        const SizedBox(height: 100,)
+
+
+        const SizedBox(height: 30,),
+         Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 20,),
+           child: Text('Actores',style:textStyle.titleLarge),
+        ),
+       
+      _CustomActors(movieid: movie.id.toString()),
+        
+      const SizedBox(height: 100,)
       
       ],
     );
   }
 }
 
+class _CustomActors extends ConsumerWidget {
+  const _CustomActors({ required this.movieid});
+ final String movieid;
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+   final List<Actor>? actors = ref.watch(actorProvider)[movieid];
+   if(actors == null) return  const CircularProgressIndicator(strokeWidth: 2,);
 
+    return  SizedBox(
+          height: 300,
+      
+              child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                itemCount: actors.length,
+              
+                itemBuilder: (context, index) {
+             
+
+                 final actor = actors[index];
+              
+                 return Container(
+                  width: 135,
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+
+                  child: Column(
+                    
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.network(
+                            actor.profilePath != ''? actor.profilePath : 'https://vectorified.com/images/no-profile-picture-icon-38.jpg',
+                            fit: BoxFit.cover,
+                            width:135, 
+                            height: 180,
+                            loadingBuilder: (context, child, loadingProgress){
+                              if (loadingProgress != null ) {
+                                return  const SizedBox(
+                                  height: 180,
+                                  child: Center(child: CircularProgressIndicator(strokeWidth: 2,),));
+                              } 
+                              return child;
+                            } ,
+                            ),
+                        ),
+                       const SizedBox(height: 5,),
+                        Text(actor.name,maxLines: 2,),
+                        Text(actor.character?? '',maxLines: 1,style: const TextStyle(fontWeight: FontWeight.bold), overflow: TextOverflow.ellipsis,)
+
+                      ],
+                    ),
+                  
+                  );
+                
+                }),
+            
+        );
+  }
+}
 
 class _CustomSliverAppBar extends StatelessWidget {
   const _CustomSliverAppBar({required this.movie});
@@ -131,9 +203,9 @@ class _CustomSliverAppBar extends StatelessWidget {
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: false,
         titlePadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-        title: Text(movie.title,style: const TextStyle(
-          color: Colors.white, fontSize: 20),
-          textAlign: TextAlign.center, ),
+        // title: Text(movie.title,style: const TextStyle(
+        //   color: Colors.white, fontSize: 20),
+        //   textAlign: TextAlign.center, ),
         background: Stack( //un stack para añadir la imagen y agregar un gradient si la imagen es muy clara
           children: [
 
