@@ -82,17 +82,18 @@ final Movie movie;
          
           SizedBox(
             width: 150,
+            height: 220,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.network(
-                movie.posterPath,
+                movie.posterPath != 'no-poster'?movie.posterPath:'https://vectorified.com/images/no-profile-picture-icon-38.jpg',
                 fit: BoxFit.cover,
                 width: 150,
                 loadingBuilder: (context, child, loadingProgress) {
                   if(loadingProgress != null){
-                 return Padding(
-                   padding: const EdgeInsets.all(8.0),
-                   child: const Center( child: CircularProgressIndicator(strokeWidth: 2,)),
+                 return const SizedBox(
+                  height: 190,
+                   child: Center( child: CircularProgressIndicator(strokeWidth: 2,)),
                  );
                   }
                   return GestureDetector(

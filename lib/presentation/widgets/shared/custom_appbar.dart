@@ -1,10 +1,16 @@
+import 'package:cinemapedia/presentation/delegates/search_movie_delegate.dart';
+import 'package:cinemapedia/presentation/providers/providers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-class CustomAppbar extends StatelessWidget {
+import '../../../config/domain/entities/movie.dart';
+
+class CustomAppbar extends ConsumerWidget {
   const CustomAppbar({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref ){
     final colors = Theme.of(context).colorScheme;
     final titleStyle = Theme.of(context).textTheme.titleMedium;
     return   SafeArea(
@@ -19,8 +25,24 @@ class CustomAppbar extends StatelessWidget {
              const SizedBox(width: 5,),
               Text('Cinemapedia',style: titleStyle,),
               const Spacer(),//widget que se entira al mayor espacio disponible
-              IconButton(onPressed: () {
-                
+            
+              IconButton(onPressed: () async{
+                final searchMovies= ref.read(searchMovieProvider);
+                final searchQuery = ref.read(searhQueryProvider);
+
+              final movie = await showSearch<Movie?>(
+                  query: searchQuery, //el valor que va a tener el query por defeto
+                  context: context,
+                   delegate: SearchMovieDelegate(
+                    initialMovies: searchMovies,
+                    searchmovies: ref.read(searchMovieProvider.notifier).searchMoviesByQuery
+                   )
+                   ); 
+                 if(movie ==null || !context.mounted) return ;
+                    
+                  context.push('/movie/${movie.id}');
+                    
+                  
               }, 
               icon: const Icon(Icons.search)
               )
