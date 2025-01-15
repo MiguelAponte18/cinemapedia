@@ -73,4 +73,36 @@ class MoviedbDatasource extends MoviesDatasources {
 
     return movie;
   }
+  
+  @override
+  Future<List<Movie>> getSimilar({int page = 1, required String id})async{
+   final response =
+        await dio.get('/movie/$id/recommendations', queryParameters: {'page': page});
+        if(response.statusCode != 200) throw Exception('Movie with id: $id not found');
+
+
+    final movieDBResponse = MovieDbResponse.fromJson(response.data);
+
+    final List<Movie> movies = movieDBResponse.results
+        .where((moviedb) =>
+            moviedb.posterPath !=
+            'no-poster') //where es un filtro y si es true deja pasar la pelicula, sino, la excluye y no la tenemos que renderizar si no tiene poster
+        .map(
+          (moviedb) => MovieMappers.movieDBToEntity(moviedb),
+        )
+        .toList();
+
+
+   return  movies;
+  }
+  
+  @override
+  Future<List<Movie>> searchMovie(String query) async {
+   if(query.isEmpty)return [];
+
+   final response =   await dio.get('/search/movie', queryParameters: {"query":query});
+
+   return _jsonToMovies(response.data);
+
+  }
 }

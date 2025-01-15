@@ -1,10 +1,13 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:cinemapedia/config/domain/entities/actor.dart';
-import 'package:cinemapedia/presentation/providers/actors/actors_provider.dart';
 import 'package:cinemapedia/presentation/providers/movies/movie_info_provider.dart';
+import 'package:cinemapedia/presentation/providers/providers.dart';
+import 'package:cinemapedia/presentation/widgets/movies/movie_horizontal_listview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../config/domain/entities/movie.dart';
+import '../../providers/actors/actors_provider.dart';
 
 
 class MovieScreen extends ConsumerStatefulWidget {
@@ -23,6 +26,8 @@ class MovieScreenState extends ConsumerState<MovieScreen> {
        super.initState();
        ref.read(movieInfoProvider.notifier).loadMovie(widget.movieid);
        ref.read(actorProvider.notifier).loadActors(widget.movieid);
+       ref.read(similarMoviesProvider.notifier).loadNextPage(widget.movieid);
+       
   }
   @override
   Widget build(BuildContext context) {
@@ -83,7 +88,7 @@ final Movie movie;
                   crossAxisAlignment:CrossAxisAlignment.start ,
                   children: [
                     Text(movie.title,style: textStyle.titleLarge,),
-                    Text(movie.overview)
+                    Text(movie.overview,)
                   ],
                 ),
               ),
@@ -91,7 +96,28 @@ final Movie movie;
             ],
           ),
         ),
+         
+         Padding(
+          padding: const EdgeInsets.all(5),
+          child:  RichText(
+            
+            text: TextSpan(
 
+              text:  'Fecha de estreno: ',
+             style: const TextStyle(color: Color.fromARGB(255, 17, 17, 17),fontWeight: FontWeight.bold, fontSize: 17),
+              children: [
+                TextSpan(
+                  
+                  text: movie.releaseDate.isNotEmpty? movie.releaseDate: 'Sin datos',
+                  style: const TextStyle(fontWeight: FontWeight.normal,)
+                )
+              ]
+              ),
+          
+        
+            )
+            ),
+           
 
         //generos de la pelicula
         Padding(
@@ -110,18 +136,31 @@ final Movie movie;
           ),
 
 
-        const SizedBox(height: 30,),
          Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 20,),
            child: Text('Actores',style:textStyle.titleLarge),
         ),
-       
-      _CustomActors(movieid: movie.id.toString()),
+            _CustomActors(movieid: movie.id.toString()),
+        const SizedBox(height: 5,),
+      _SimilarMovies(movie.id.toString()),
         
-      const SizedBox(height: 100,)
+      const SizedBox(height: 50,)
       
       ],
     );
+  }
+}
+
+class _SimilarMovies extends ConsumerWidget {
+  const _SimilarMovies(this.movieId,);
+ final String movieId;
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final movies = ref.watch(similarMoviesProvider);
+    return  MovieHorizontalListview(
+    movies:movies,
+    title: 'Recomendaciones',
+     );
   }
 }
 
@@ -131,7 +170,7 @@ class _CustomActors extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
    final List<Actor>? actors = ref.watch(actorProvider)[movieid];
-   if(actors == null) return  const CircularProgressIndicator(strokeWidth: 2,);
+   if(actors == null) return  const Text('Sin actores');
 
     return  SizedBox(
           height: 300,
@@ -152,27 +191,29 @@ class _CustomActors extends ConsumerWidget {
 
                   child: Column(
                     
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(15),
-                          child: Image.network(
-                            actor.profilePath != ''? actor.profilePath : 'https://vectorified.com/images/no-profile-picture-icon-38.jpg',
-                            fit: BoxFit.cover,
-                            width:135, 
-                            height: 180,
-                            loadingBuilder: (context, child, loadingProgress){
-                              if (loadingProgress != null ) {
-                                return  const SizedBox(
-                                  height: 180,
-                                  child: Center(child: CircularProgressIndicator(strokeWidth: 2,),));
-                              } 
-                              return child;
-                            } ,
-                            ),
+                        FadeInRight(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: Image.network(
+                              actor.profilePath != ''? actor.profilePath : 'https://vectorified.com/images/no-profile-picture-icon-38.jpg',
+                              fit: BoxFit.cover,
+                              width:135, 
+                              height: 180,
+                              loadingBuilder: (context, child, loadingProgress){
+                                if (loadingProgress != null ) {
+                                  return  const SizedBox(
+                                    height: 180,
+                                    child: Center(child: CircularProgressIndicator(strokeWidth: 2,),));
+                                } 
+                                return child;
+                              } ,
+                              ),
+                          ),
                         ),
                        const SizedBox(height: 5,),
-                        Text(actor.name,maxLines: 2,),
+                        Text(actor.name,maxLines: 2, ),
                         Text(actor.character?? '',maxLines: 1,style: const TextStyle(fontWeight: FontWeight.bold), overflow: TextOverflow.ellipsis,)
 
                       ],
@@ -213,6 +254,11 @@ class _CustomSliverAppBar extends StatelessWidget {
              child: Image.network(
               movie.posterPath,
              fit: BoxFit.cover,
+             loadingBuilder: (context, child, loadingProgress) {
+               
+               if(loadingProgress != null)return const SizedBox();
+               return FadeIn(child: child);
+             },
              
              ),
              
@@ -231,7 +277,7 @@ class _CustomSliverAppBar extends StatelessWidget {
                     stops: [0.4,1.0],//donde comienza y termina en la pantalla
                     colors: [
                       Colors.transparent,
-                      Colors.black87
+                      Colors.black38
                     ]
                     )
                 )

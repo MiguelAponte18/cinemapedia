@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:cinemapedia/config/domain/entities/movie.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class MoviesSlideshow extends StatelessWidget {
   const MoviesSlideshow({super.key, required this.movies});
@@ -67,13 +68,18 @@ class _Slide extends StatelessWidget {
                fit: BoxFit.cover,
                loadingBuilder: (context, child, loadingProgress) {
                  if(loadingProgress!= null){
-                  return DecoratedBox(
+                  return const DecoratedBox(
                     decoration: BoxDecoration(
                       color: Colors.black12
                     )
                     );    
                  }
-                  return FadeIn(child: child);//retorna la imagen
+                  return GestureDetector(
+                  onTap: () => context.push('/movie/${movie.id}'),  //asignandole la navegacion a la imagen con el paramtro de la id de la pelicula
+                   child: FadeIn(child: child)//retorna la imagen,
+                  );
+                  
+                   
                },
             )
             )

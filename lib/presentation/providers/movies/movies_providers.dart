@@ -34,6 +34,7 @@ final fetchMoreMovies = ref.watch(movieRepositoryProvider).getUpComing;
 
 
 
+
 typedef MovieCallback = Future<List<Movie>> Function({int page});//para definir el caso de uso , que el movieNotifier va a necesitar para cargar mas peliculas
 
 
@@ -55,6 +56,42 @@ Future<void> loadNextPage() async{
   currentPage++;
   final List<Movie> movies = await fetchMoreMovies(page:currentPage );//todo getNowPlaying
    state = [...state,...movies];
+   await Future.delayed(const Duration(milliseconds: 300));//para reducir el numero de peticiones
+   loading = false;
+}
+
+}
+
+
+final similarMoviesProvider = StateNotifierProvider<MoviesNotifierSimilar,List<Movie>>((ref) {//La clase MoviesNotifier la contrala y list<Movie> es la data o estado que fluye e el
+
+final fetchMoreMovies = ref.watch(movieRepositoryProvider).getSimilar;
+  return MoviesNotifierSimilar(fetchMoreMovies: fetchMoreMovies);
+},);
+
+
+
+typedef MovieCallbackSimilar = Future<List<Movie>> Function({int page,required String id});//para definir el caso de uso , que el movieNotifier va a necesitar para cargar mas peliculas
+
+
+class MoviesNotifierSimilar extends StateNotifier<List<Movie>>{
+
+  int currentPage = 1;
+  MovieCallbackSimilar fetchMoreMovies;
+  bool loading = false;
+
+  MoviesNotifierSimilar({
+    required this.fetchMoreMovies
+  }): super([]);
+
+Future<void> loadNextPage( String id) async{
+  if(loading) return;//para evitar que se agan varias peticiones simultaneas
+
+  loading = true;
+
+  // currentPage++;
+  final List<Movie> movies = await fetchMoreMovies(page:currentPage,id: id );//todo getNowPlaying
+   state = movies;
    await Future.delayed(const Duration(milliseconds: 300));//para reducir el numero de peticiones
    loading = false;
 }
