@@ -241,6 +241,15 @@ class _CustomSliverAppBar extends StatelessWidget {
       backgroundColor: Colors.black,
       expandedHeight: size.height *0.7,//70% de la altura
       foregroundColor: Colors.white,
+      actions: [
+        IconButton(
+          onPressed: () {
+            
+          },
+           icon: const Icon(Icons.favorite_border),
+            //  Icon(Icons.favorite, color: Colors.red,)                         
+           ),
+      ],
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: false,
         titlePadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -265,47 +274,74 @@ class _CustomSliverAppBar extends StatelessWidget {
             ),
            
            //gradient para el poster entero
-            const SizedBox.expand(
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  
-                  
-                  gradient: LinearGradient(
-                   
-                    begin: AlignmentDirectional.topCenter,
-                    end: AlignmentDirectional.bottomCenter,
-                    stops: [0.4,1.0],//donde comienza y termina en la pantalla
-                    colors: [
+         const _CustomGradient(
+          begin: AlignmentDirectional.topCenter,
+          end: AlignmentDirectional.bottomCenter,
+          colors: [
                       Colors.transparent,
                       Colors.black38
-                    ]
-                    )
-                )
-                ),
-            ),
-
-              //gradient para que se mmuestre la flecha bien
-             const SizedBox.expand(
-              child: DecoratedBox(
-                decoration: BoxDecoration(   
-                  gradient: LinearGradient(          
-                    begin: AlignmentDirectional.topStart,
-                    stops: [0.0,0.3],//donde comienza y termina en la pantalla
-                    colors: [
+                  ],
+          stops:[0.7,1.0],//donde comienza y termina en la pantalla
+          ),
+         
+        
+         //gradient para que se mmuestre el corazon bien
+          const _CustomGradient(
+          begin: AlignmentDirectional.topEnd,
+          end: AlignmentDirectional.bottomStart,
+          colors: [
                       Colors.black87,
                       Colors.transparent,
-                    ]
-                    )
-                )
-                ),
-            )
-
-
+                  ],
+          stops:[0.0,0.3],
+          ),
+         
+    
+              //gradient para que se mmuestre la flecha bien
+             const _CustomGradient(
+              begin: AlignmentDirectional.topStart,
+              end: AlignmentDirectional.bottomEnd,
+              stops:[0.0,0.3],
+              colors: [
+                      Colors.black87,
+                      Colors.transparent,
+                    ] ,
+              
+              ),
 
           ],
         ),
       ),
 
     );
+  }
+}
+
+class _CustomGradient extends StatelessWidget {
+
+  const _CustomGradient({required this.begin, required this.end, required this.stops, required this.colors});
+
+final AlignmentGeometry begin;
+final AlignmentGeometry end;
+final List<double> stops;
+final List<Color> colors;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return  SizedBox.expand(
+              child: DecoratedBox(
+                decoration: BoxDecoration(            
+                  gradient: LinearGradient(
+                   
+                    begin:begin,
+                    end:end,
+                    stops: stops,//donde comienza y termina en la pantalla
+                    colors: colors
+                    )
+                )
+                ),
+            );
+
   }
 }

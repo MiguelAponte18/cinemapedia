@@ -97,7 +97,7 @@ final Movie movie;
                  );
                   }
                   return GestureDetector(
-                    onTap: () => context.push('/movie/${movie.id}'),  //asignandole la navegacion a la imagen con el paramtro de la id de la pelicula
+                    onTap: () => context.push('/home/0/movie/${movie.id}'),  //asignandole la navegacion a la imagen con el paramtro de la id de la pelicula
                     child: FadeIn(child: child)
                     );
                 },
