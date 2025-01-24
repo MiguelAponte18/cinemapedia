@@ -1,4 +1,12 @@
+
+import 'package:isar/isar.dart';
+part 'movie.g.dart'; //el archivo autogenerado
+
+@collection//para generar la forma de la base de datps
 class Movie {
+
+  Id? isarId;//isar pide un id, lo ponemos opcional para que isar lo genere automaticamente de forma incrementada
+
   final bool adult;
   final String backdropPath;
   final List<String> genreIds;
