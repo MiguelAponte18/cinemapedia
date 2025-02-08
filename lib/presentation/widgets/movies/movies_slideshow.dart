@@ -1,7 +1,9 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:cinemapedia/config/domain/entities/movie.dart';
+import 'package:cinemapedia/presentation/providers/theme/modo_dark.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 class MoviesSlideshow extends StatelessWidget {
@@ -33,7 +35,7 @@ final List<Movie> movies;
   }
 }
 
-class _Slide extends StatelessWidget {
+class _Slide extends ConsumerWidget {
  _Slide({
     super.key, required this.movie,
   });
@@ -41,14 +43,15 @@ class _Slide extends StatelessWidget {
 
   
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final isdark = ref.watch(modoDarkProvider).isDarkMode;
     final decoration = BoxDecoration(
     borderRadius: BorderRadius.circular(20),
-    boxShadow: const [
+    boxShadow: [
       BoxShadow(
-        color: Colors.black45,
+        color: isdark? const Color.fromARGB(117, 238, 232, 232): const Color.fromARGB(174, 7, 5, 5),
         blurRadius: 10,
-        offset: Offset(0, 10)
+        offset: const Offset(0, 6)
       )
     ]
 

@@ -1,5 +1,6 @@
 import 'package:cinemapedia/presentation/delegates/search_movie_delegate.dart';
 import 'package:cinemapedia/presentation/providers/providers.dart';
+import 'package:cinemapedia/presentation/providers/theme/modo_dark.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -11,8 +12,10 @@ class CustomAppbar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref ){
+    final isDark = ref.watch(modoDarkProvider).isDarkMode;
     final colors = Theme.of(context).colorScheme;
     final titleStyle = Theme.of(context).textTheme.titleMedium;
+    final theme = ref.watch(localStorageRepositoryProvider);
     return   SafeArea(
       bottom: false,
       child: Padding(
@@ -25,7 +28,16 @@ class CustomAppbar extends ConsumerWidget {
              const SizedBox(width: 5,),
               Text('Cinemapedia',style: titleStyle,),
               const Spacer(),//widget que se entira al mayor espacio disponible
-            
+              IconButton(
+                onPressed:()async{
+                
+                 await  ref.read(localStorageRepositoryProvider).toggleThemeDark();
+                  ref.read(modoDarkProvider.notifier).toggleDarkTheme();
+                  
+                  
+                },
+                 icon: Icon(isDark?Icons.light_mode : Icons.dark_mode)
+                 ),
               IconButton(onPressed: () async{
                 final searchMovies= ref.read(searchMovieProvider);
                 final searchQuery = ref.read(searhQueryProvider);

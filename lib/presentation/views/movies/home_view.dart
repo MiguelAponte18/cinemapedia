@@ -1,3 +1,4 @@
+import 'package:cinemapedia/presentation/providers/theme/modo_dark.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,33 +12,34 @@ class HomeView extends ConsumerStatefulWidget {
   HomeViewState createState() => HomeViewState();
 }
 
-class HomeViewState extends ConsumerState<HomeView> {
+class HomeViewState extends ConsumerState<HomeView> with AutomaticKeepAliveClientMixin {
 //ya tego acceco al ref con el consumerState
 
   @override
   void initState() {
     super.initState();
-
+    ref.read(modoDarkProvider.notifier).activarModo();
     //como estoy dentro de un metodo es un read
 
     ref.read(nowPlayingMoviesProvider.notifier).loadNextPage();
-    ref.read(popularMoviesProvider.notifier).loadNextPage();
     ref.read(topRatedMoviesProvider.notifier).loadNextPage();
     ref.read(upComingMoviesProvider.notifier).loadNextPage();
+    ref.read( popularMoviesProvider.notifier ).loadNextPage();
+
 
 
   }
 
   @override
   Widget build(BuildContext context) {
-
+  super.build(context);
+  
     final initialLoading = ref.watch(initialLoadingProvider);
     if(initialLoading)return FullScreenLoader();
 
 
     final nowPlayingMovies = ref.watch( nowPlayingMoviesProvider); //aqui si es watch porque necesito estar pendiente del estado
     final slideNowPlayingMovies = ref.watch(moviesSlideshowProvider);
-    final popularMovies = ref.watch(popularMoviesProvider);
     final topRatedMovies = ref.watch(topRatedMoviesProvider);
     final upComingMovies = ref.watch(upComingMoviesProvider);
 
@@ -83,13 +85,6 @@ class HomeViewState extends ConsumerState<HomeView> {
                           .loadNextPage(), //el.red lo usamos cuando estamos dentro de callbacks o metodos
                     ),
                   
-                    MovieHorizontalListview(
-                      movies: popularMovies,
-                      title: 'Populares',
-                      // subTitle: 'Lunes 2',
-                      loadNextPage: () => ref.read(popularMoviesProvider.notifier).loadNextPage(), //el.red lo usamos cuando estamos dentro de callbacks o metodos
-                    ),
-                  
                   
                     MovieHorizontalListview(
                       movies: topRatedMovies,
@@ -109,4 +104,7 @@ class HomeViewState extends ConsumerState<HomeView> {
         ],
     );
   }
+  
+  @override
+  bool get wantKeepAlive => true;
 }

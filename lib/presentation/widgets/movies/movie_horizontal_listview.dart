@@ -47,6 +47,8 @@ scrollController.addListener(() {
         children: [
             if(widget.title != null|| widget.subTitle != null)
             _Title(title: widget.title,subtitle: widget.subTitle,),
+            const SizedBox(height: 10,),
+
 
             Expanded(child: ListView.builder(
             controller: scrollController,
@@ -82,31 +84,22 @@ final Movie movie;
          
           SizedBox(
             width: 150,
-            height: 220,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: Image.network(
-                movie.posterPath != 'no-poster'?movie.posterPath:'https://vectorified.com/images/no-profile-picture-icon-38.jpg',
-                fit: BoxFit.cover,
-                width: 150,
-                loadingBuilder: (context, child, loadingProgress) {
-                  if(loadingProgress != null){
-                 return const SizedBox(
-                  height: 190,
-                   child: Center( child: CircularProgressIndicator(strokeWidth: 2,)),
-                 );
-                  }
-                  return GestureDetector(
-                    onTap: () => context.push('/home/0/movie/${movie.id}'),  //asignandole la navegacion a la imagen con el paramtro de la id de la pelicula
-                    child: FadeIn(child: child)
-                    );
-                },
-              ),
+              child: GestureDetector(
+                onTap: () => context.push('/home/0/movie/${movie.id}'),  //asignandole la navegacion a la imagen con el paramtro de la id de la pelicula
+                child: FadeInImage(
+                  fit: BoxFit.cover,
+                  height: 220,
+                  placeholder: const AssetImage('assets/loaders/bottle-loader.gif'),
+                   image: NetworkImage(movie.posterPath)
+                   ),
+              )
+               
             ),
           ),
 
         //*
-
         //* title 
         SizedBox(  
           width: 150,
@@ -124,7 +117,7 @@ final Movie movie;
               children: [
                 const Icon(Icons.star_half_outlined, color: Color.fromARGB(255, 209, 189, 4)),
                const SizedBox(width: 3,),
-                Text(movie.voteAverage.toStringAsFixed(1),style:themeTitle.bodyMedium!.copyWith(color:Color.fromARGB(255, 209, 189, 4) ),),
+                Text(movie.voteAverage.toStringAsFixed(1),style:themeTitle.bodyMedium!.copyWith(color:const Color.fromARGB(255, 209, 189, 4) ),),
                  const SizedBox(width: 10,),
                  const Spacer(),
                  Text(HumanFormats.number(movie.popularity),style: themeTitle.bodySmall,)
@@ -139,7 +132,7 @@ final Movie movie;
 }
 
 class _Title extends StatelessWidget {
-  const _Title({super.key, this.title, this.subtitle});
+  const _Title({this.title, this.subtitle});
 
 final String? title;
 final String? subtitle;

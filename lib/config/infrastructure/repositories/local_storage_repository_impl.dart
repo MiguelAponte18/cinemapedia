@@ -21,5 +21,15 @@ class LocalStorageRepositoryImpl extends LocalStorageRepository {
   Future<void> toggleFavorite(Movie movie) {
    return datasource.toggleFavorite(movie);
   }
+  
+  @override
+  Future<bool> isThemeDark() {
+    return datasource.isThemeDark();
+  }
+  
+  @override
+  Future<void> toggleThemeDark() {
+    return  datasource.toggleThemeDark();    
+  }
 
 }

@@ -3,6 +3,8 @@ import 'package:cinemapedia/config/domain/entities/movie.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../../domain/entities/theme_dark.dart';
+
 class IsarLocalStorageDatasource extends LocalStorageDatasource {
 late Future<Isar> db; //apertura de la base de dator, usamos late para esperar que este lista para ejeecutar lo siguiente
 
@@ -15,7 +17,7 @@ final dir = await getApplicationDocumentsDirectory();
 
     if(Isar.instanceNames.isEmpty){//si  no tenemos ninguna instancia
     return await Isar.open( //abrimoms la base de datos, 
-      [MovieSchema],
+      [MovieSchema,ThemeDarkSchema],
        inspector: true, //me permite levantar un servicio automaticamente por isar para ver el estado de la base de datos local
        directory:dir.path,
       );
@@ -66,6 +68,38 @@ final dir = await getApplicationDocumentsDirectory();
          .offset(offset)
          .limit(limited)
          .findAll(); //trae los objetos que se relacionan con los parametros que le pase
+
+  }
+  
+  @override
+  Future<bool> isThemeDark() async{
+     final isar =await db;
+      
+    final ThemeDark? favoriteMovie = await isar.themeDarks
+    .filter()
+    .nombreEqualTo('theme-dark')
+    .findFirst();
+
+    
+   return favoriteMovie == null;
+  }
+  
+  @override
+  Future<void> toggleThemeDark()async {
+    final isar =await db;
+      
+    final ThemeDark? favoriteMovie = await isar.themeDarks
+    .filter()
+    .nombreEqualTo('theme-dark')
+    .findFirst();
+
+      if(favoriteMovie == null){
+       isar.writeTxnSync(() => isar.themeDarks.putSync(ThemeDark(isDark: true)));//lo borramos el id que le asigno isar
+      return;
+      }
+     
+     isar.writeTxnSync(() => isar.themeDarks.deleteSync(favoriteMovie.isarId!));//lo borramos el id que le asigno isar
+
 
   }
 

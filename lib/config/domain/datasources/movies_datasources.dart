@@ -1,6 +1,8 @@
 
 import 'package:cinemapedia/config/domain/entities/movie.dart';
 
+import '../entities/video.dart';
+
 abstract class MoviesDatasources {
 
   Future<List<Movie>> getNowPlaying({int page = 1});
@@ -12,6 +14,7 @@ abstract class MoviesDatasources {
 
   
 
+  Future<List<Video>> getVideosById(int movieId);
 
   //pelicula indivual
 

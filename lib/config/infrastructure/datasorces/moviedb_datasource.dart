@@ -6,6 +6,9 @@ import 'package:cinemapedia/config/infrastructure/models/moviedb/moviedb_respons
 import 'package:dio/dio.dart';
 
 import '../../domain/entities/movie.dart';
+import '../../domain/entities/video.dart';
+import '../mappers/video_mappers.dart';
+import '../models/moviedb/video_moviedb.dart';
 
 class MoviedbDatasource extends MoviesDatasources {
   final dio = Dio(BaseOptions(
@@ -104,5 +107,32 @@ class MoviedbDatasource extends MoviesDatasources {
 
    return _jsonToMovies(response.data);
 
+  }
+
+  @override
+  Future<List<Video>> getVideosById(int movieId)async {
+    final response = await dio.get('/movie/$movieId/videos');
+
+    final videosdbResponse = VideosResponse.fromJson(response.data);
+  //  final videos = <Video>[];
+   
+ final List<Video> resultadosVideos =  videosdbResponse.results
+   .where((video)=> video.site == 'YouTube')
+   .map((videoDb)=>
+    VideoMappers.videoFromEntity(videoDb)
+   ).toList();
+   
+    // for(final videosResponse in videosdbResponse.results){
+    //   if(videosResponse.site == 'Youtube'){
+    //     final video = VideoMappers.videoFromEntity(videosResponse);
+
+    //     videos.add(video);
+    //   }
+
+    // }
+
+  
+
+    return resultadosVideos;
   }
 }

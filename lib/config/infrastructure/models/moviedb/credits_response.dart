@@ -61,19 +61,19 @@ class Cast {
     });
 
     factory Cast.fromJson(Map<String, dynamic> json) => Cast(
-        adult: json["adult"],
-        gender: json["gender"],
-        id: json["id"],
-        knownForDepartment: json["known_for_department"]!,
+        adult: json["adult"] ?? '',
+        gender: json["gender"] ?? '',
+        id: json["id"] ,
+        knownForDepartment: json["known_for_department"]!?? '',
         name: json["name"],
-        originalName: json["original_name"],
+        originalName: json["original_name"] ?? '',
         popularity: json["popularity"]?.toDouble(),
-        profilePath: json["profile_path"],
-        castId: json["cast_id"],
+        profilePath: json["profile_path"] ,
+        castId: json["cast_id"] ,
         character: json["character"],
-        creditId: json["credit_id"],
+        creditId: json["credit_id"]??'',
         order: json["order"],
-        department:json["department"]?? '',
+        department:json["department"],
         job: json["job"],
     );
 

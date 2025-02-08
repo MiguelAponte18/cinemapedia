@@ -23,8 +23,8 @@ void onTappedIndex(BuildContext contex, int index){
           label: 'Inicio',
           ),
           BottomNavigationBarItem(
-          icon: Icon(Icons.label_outline),
-          label: 'Categorias',
+          icon: Icon(Icons.star),
+          label: 'Populares',
           ),
            BottomNavigationBarItem(
           icon: Icon(Icons.favorite),

@@ -1,8 +1,10 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cinemapedia/config/domain/entities/actor.dart';
 import 'package:cinemapedia/presentation/providers/movies/movie_info_provider.dart';
+import 'package:cinemapedia/presentation/providers/movies/video_repository_provider.dart';
 import 'package:cinemapedia/presentation/providers/providers.dart';
 import 'package:cinemapedia/presentation/widgets/movies/movie_horizontal_listview.dart';
+import 'package:cinemapedia/presentation/widgets/videos/videos_from_movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -141,6 +143,7 @@ final Movie movie;
            child: Text('Actores',style:textStyle.titleLarge),
         ),
             _CustomActors(movieid: movie.id.toString()),
+           VideosFromMovie(movieId: movie.id),
         const SizedBox(height: 5,),
       _SimilarMovies(movie.id.toString()),
         
@@ -150,6 +153,7 @@ final Movie movie;
     );
   }
 }
+
 
 class _SimilarMovies extends ConsumerWidget {
   const _SimilarMovies(this.movieId,);
@@ -238,7 +242,7 @@ class _CustomSliverAppBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context,WidgetRef ref) {
-
+ 
     final size = MediaQuery.of(context).size;//dimensioines del dispositivo
     final isFavorite =  ref.watch(isFavoriteFutureProvider(movie.id));
 
