@@ -1,14 +1,11 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cinemapedia/config/domain/entities/actor.dart';
 import 'package:cinemapedia/presentation/providers/providers.dart';
-import 'package:cinemapedia/presentation/widgets/movies/movie_horizontal_listview.dart';
-import 'package:cinemapedia/presentation/widgets/movies/movie_rating.dart';
-import 'package:cinemapedia/presentation/widgets/videos/videos_from_movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../../../config/domain/entities/movie.dart';
 import '../../providers/actors/actors_provider.dart';
+import '../../widgets/widgets.dart';
 
 
 class MovieScreen extends ConsumerStatefulWidget {
@@ -311,7 +308,7 @@ class _CustomSliverAppBar extends ConsumerWidget {
             ),
            
            //gradient para el poster entero
-         const _CustomGradient(
+         const CustomGradient(
           begin: AlignmentDirectional.topCenter,
           end: AlignmentDirectional.bottomCenter,
           colors: [
@@ -323,7 +320,7 @@ class _CustomSliverAppBar extends ConsumerWidget {
          
         
          //gradient para que se mmuestre el corazon bien
-          const _CustomGradient(
+          const CustomGradient(
           begin: AlignmentDirectional.topEnd,
           end: AlignmentDirectional.bottomStart,
           colors: [
@@ -335,7 +332,7 @@ class _CustomSliverAppBar extends ConsumerWidget {
          
     
               //gradient para que se mmuestre la flecha bien
-             const _CustomGradient(
+             const CustomGradient(
               begin: AlignmentDirectional.topStart,
               end: AlignmentDirectional.bottomEnd,
               stops:[0.0,0.3],
@@ -354,31 +351,3 @@ class _CustomSliverAppBar extends ConsumerWidget {
   }
 }
 
-class _CustomGradient extends StatelessWidget {
-
-  const _CustomGradient({required this.begin, required this.end, required this.stops, required this.colors});
-
-final AlignmentGeometry begin;
-final AlignmentGeometry end;
-final List<double> stops;
-final List<Color> colors;
-
-
-  @override
-  Widget build(BuildContext context) {
-    return  SizedBox.expand(
-              child: DecoratedBox(
-                decoration: BoxDecoration(            
-                  gradient: LinearGradient(
-                   
-                    begin:begin,
-                    end:end,
-                    stops: stops,//donde comienza y termina en la pantalla
-                    colors: colors
-                    )
-                )
-                ),
-            );
-
-  }
-}

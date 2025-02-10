@@ -11,9 +11,9 @@ class MovieRating extends StatelessWidget {
             width: 150,
             child: Row(
               children: [
-                const Icon(Icons.star_half_outlined, color: Colors.amber),
+                 Icon(Icons.star_half_outlined, color: Colors.yellow.shade800),
                 const SizedBox(width: 3,),
-                Text(voteAverage.toStringAsFixed(1),style:textStyles.bodyMedium!.copyWith(color: Colors.amber) ),
+                Text(voteAverage.toStringAsFixed(1),style:textStyles.bodyMedium!.copyWith(color: Colors.yellow.shade800) ),
                  
               ],
             ),

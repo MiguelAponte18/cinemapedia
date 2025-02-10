@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:cinemapedia/config/domain/entities/movie.dart';
 import 'package:cinemapedia/presentation/providers/theme/modo_dark.dart';
+import 'package:cinemapedia/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -36,8 +37,8 @@ final List<Movie> movies;
 }
 
 class _Slide extends ConsumerWidget {
- _Slide({
-    super.key, required this.movie,
+ const _Slide({
+     required this.movie,
   });
   final Movie movie; 
 
@@ -46,6 +47,7 @@ class _Slide extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isdark = ref.watch(modoDarkProvider).isDarkMode;
     final decoration = BoxDecoration(
+    
     borderRadius: BorderRadius.circular(20),
     boxShadow: [
       BoxShadow(
@@ -88,9 +90,23 @@ class _Slide extends ConsumerWidget {
             )
             
           ),
+          Padding(
+            padding:const EdgeInsets.only(bottom: 3),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: const CustomGradient(
+                begin: AlignmentDirectional.topCenter,
+                 end: AlignmentDirectional.bottomCenter,
+                  stops: [0.7, 1.0],
+                 colors: [
+                   Colors.transparent,
+                   Colors.black87,
+                 ]),
+            ),
+          ),
           Positioned(
             left: 15,
-            bottom: 25,
+            bottom: 20,
             child: Text(movie.title,style: const TextStyle(
               color: Colors.white,
               shadows: [
