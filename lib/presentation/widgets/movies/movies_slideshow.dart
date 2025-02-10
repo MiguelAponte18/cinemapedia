@@ -97,7 +97,7 @@ class _Slide extends ConsumerWidget {
               child: const CustomGradient(
                 begin: AlignmentDirectional.topCenter,
                  end: AlignmentDirectional.bottomCenter,
-                  stops: [0.7, 1.0],
+                  stops: [0.5, 1.0],
                  colors: [
                    Colors.transparent,
                    Colors.black87,
