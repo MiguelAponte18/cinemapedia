@@ -80,25 +80,31 @@ final dir = await getApplicationDocumentsDirectory();
     .nombreEqualTo('theme-dark')
     .findFirst();
 
-    
-   return favoriteMovie == null;
+    if(favoriteMovie == null) return false;
+
+    if(!favoriteMovie.isDark) return false;
+
+   return favoriteMovie.isDark;
   }
   
   @override
   Future<void> toggleThemeDark()async {
     final isar =await db;
       
-    final ThemeDark? favoriteMovie = await isar.themeDarks
+    ThemeDark? favoriteMovie = await isar.themeDarks
     .filter()
     .nombreEqualTo('theme-dark')
     .findFirst();
 
       if(favoriteMovie == null){
+        print('entro');
        isar.writeTxnSync(() => isar.themeDarks.putSync(ThemeDark(isDark: true)));//lo borramos el id que le asigno isar
       return;
       }
      
-     isar.writeTxnSync(() => isar.themeDarks.deleteSync(favoriteMovie.isarId!));//lo borramos el id que le asigno isar
+     favoriteMovie.isDark = !favoriteMovie.isDark;
+     print(favoriteMovie.isDark);
+     isar.writeTxnSync(() => isar.themeDarks.putSync(favoriteMovie));//lo borramos el id que le asigno isar
 
 
   }

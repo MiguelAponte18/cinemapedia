@@ -23,9 +23,10 @@ class MoviedbDatasource extends MoviesDatasources {
     final movieDBResponse = MovieDbResponse.fromJson(json);
 
     final List<Movie> movies = movieDBResponse.results
-        .where((moviedb) =>
+         
+         .takeWhile((moviedb) =>
             moviedb.posterPath !=
-            'no-poster') //where es un filtro y si es true deja pasar la pelicula, sino, la excluye y no la tenemos que renderizar si no tiene poster
+            'https://linnea.com.ar/wp-content/uploads/2018/09/404PosterNotFoundReverse.jpg' ) //where es un filtro y si es true deja pasar la pelicula, sino, la excluye y no la tenemos que renderizar si no tiene poster
         .map(
           (moviedb) => MovieMappers.movieDBToEntity(moviedb),
         )

@@ -15,7 +15,6 @@ class CustomAppbar extends ConsumerWidget {
     final isDark = ref.watch(modoDarkProvider).isDarkMode;
     final colors = Theme.of(context).colorScheme;
     final titleStyle = Theme.of(context).textTheme.titleMedium;
-    final theme = ref.watch(localStorageRepositoryProvider);
     return   SafeArea(
       bottom: false,
       child: Padding(
@@ -29,9 +28,7 @@ class CustomAppbar extends ConsumerWidget {
               Text('Cinemapedia',style: titleStyle,),
               const Spacer(),//widget que se entira al mayor espacio disponible
               IconButton(
-                onPressed:()async{
-                
-                 await  ref.read(localStorageRepositoryProvider).toggleThemeDark();
+                onPressed:()async{                
                   ref.read(modoDarkProvider.notifier).toggleDarkTheme();
                   
                   

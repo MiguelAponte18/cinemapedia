@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cinemapedia/config/helpers/human_formats.dart';
+import 'package:cinemapedia/presentation/widgets/movies/movie_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -69,10 +70,10 @@ class _Slide extends StatelessWidget {
   const _Slide({ required this.movie});
 final Movie movie;
 
-
   @override
   Widget build(BuildContext context) {
     final themeTitle = Theme.of(context).textTheme;
+    if(movie.posterPath== 'https://linnea.com.ar/wp-content/uploads/2018/09/404PosterNotFoundReverse.jpg')return const SizedBox();
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
@@ -111,20 +112,7 @@ final Movie movie;
         ),
 
           //* Rating
-          SizedBox(
-            width: 150,
-            child: Row(
-              children: [
-                const Icon(Icons.star_half_outlined, color: Color.fromARGB(255, 209, 189, 4)),
-               const SizedBox(width: 3,),
-                Text(movie.voteAverage.toStringAsFixed(1),style:themeTitle.bodyMedium!.copyWith(color:const Color.fromARGB(255, 209, 189, 4) ),),
-                 const SizedBox(width: 10,),
-                 const Spacer(),
-                 Text(HumanFormats.number(movie.popularity),style: themeTitle.bodySmall,)
-              ],
-            ),
-          ),
-
+        MovieRating(voteAverage: movie.voteAverage,)
         ],
       )
       );

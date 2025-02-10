@@ -5,7 +5,7 @@ part 'theme_dark.g.dart';
 @collection
 class ThemeDark {
   Id? isarId;
- final bool isDark;
+  bool isDark;
  final String nombre= 'theme-dark';
  
 

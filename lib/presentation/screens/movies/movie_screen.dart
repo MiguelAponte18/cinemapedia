@@ -1,9 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:cinemapedia/config/domain/entities/actor.dart';
-import 'package:cinemapedia/presentation/providers/movies/movie_info_provider.dart';
-import 'package:cinemapedia/presentation/providers/movies/video_repository_provider.dart';
 import 'package:cinemapedia/presentation/providers/providers.dart';
 import 'package:cinemapedia/presentation/widgets/movies/movie_horizontal_listview.dart';
+import 'package:cinemapedia/presentation/widgets/movies/movie_rating.dart';
 import 'package:cinemapedia/presentation/widgets/videos/videos_from_movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -76,8 +75,9 @@ final Movie movie;
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(
-                  movie.posterPath,
+                  movie.posterPath ,
                   width: size.width * 0.3,
+                  fit: BoxFit.cover,
                   ),
               ),
 
@@ -90,23 +90,30 @@ final Movie movie;
                   crossAxisAlignment:CrossAxisAlignment.start ,
                   children: [
                     Text(movie.title,style: textStyle.titleLarge,),
-                    Text(movie.overview,)
+                    Text(movie.overview,),
+                    
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 2),
+                      child: MovieRating(voteAverage: movie.voteAverage),
+                    )
                   ],
                 ),
               ),
+
+              
 
             ],
           ),
         ),
          
          Padding(
-          padding: const EdgeInsets.all(5),
+          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
           child:  RichText(
             
             text: TextSpan(
-
-              text:  'Fecha de estreno: ',
-             style: const TextStyle(color: Color.fromARGB(255, 17, 17, 17),fontWeight: FontWeight.bold, fontSize: 17),
+              text:  'Estreno: ',
+             style: textStyle.bodyLarge!.copyWith(fontWeight:FontWeight.bold),
+            //  TextStyle(color: Color.fromARGB(255, 17, 17, 17),fontWeight: FontWeight.bold, fontSize: 17),
               children: [
                 TextSpan(
                   
@@ -138,10 +145,6 @@ final Movie movie;
           ),
 
 
-         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 20,),
-           child: Text('Actores',style:textStyle.titleLarge),
-        ),
             _CustomActors(movieid: movie.id.toString()),
            VideosFromMovie(movieId: movie.id),
         const SizedBox(height: 5,),
@@ -174,60 +177,72 @@ class _CustomActors extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
    final List<Actor>? actors = ref.watch(actorProvider)[movieid];
-   if(actors == null) return  const Text('Sin actores');
+  final textStyle = Theme.of(context).textTheme;
 
-    return  SizedBox(
-          height: 300,
-      
-              child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                itemCount: actors.length,
+   if(actors == null) return  const SizedBox();
+
+    return  Padding(
+        padding: const EdgeInsets.only(bottom: 5),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+               Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10,),
+               child: Text('Actores',style:textStyle.titleLarge),
+            ),
+            SizedBox(
+                  height: 260,
               
-                itemBuilder: (context, index) {
-             
-
-                 final actor = actors[index];
-              
-                 return Container(
-                  width: 135,
-                  padding: const EdgeInsets.symmetric(horizontal: 5),
-
-                  child: Column(
-                    
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        FadeInRight(
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: Image.network(
-                              actor.profilePath != ''? actor.profilePath : 'https://vectorified.com/images/no-profile-picture-icon-38.jpg',
-                              fit: BoxFit.cover,
-                              width:135, 
-                              height: 180,
-                              loadingBuilder: (context, child, loadingProgress){
-                                if (loadingProgress != null ) {
-                                  return  const SizedBox(
-                                    height: 180,
-                                    child: Center(child: CircularProgressIndicator(strokeWidth: 2,),));
-                                } 
-                                return child;
-                              } ,
-                              ),
-                          ),
-                        ),
-                       const SizedBox(height: 5,),
-                        Text(actor.name,maxLines: 2, ),
-                        Text(actor.character?? '',maxLines: 1,style: const TextStyle(fontWeight: FontWeight.bold), overflow: TextOverflow.ellipsis,)
-
-                      ],
-                    ),
-                  
-                  );
-                
-                }),
+                      child: ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        itemCount: actors.length,
+                      
+                        itemBuilder: (context, index) {
+                     
             
-        );
+                         final actor = actors[index];
+                      
+                         return Container(
+                          width: 135,
+                          padding: const EdgeInsets.symmetric(horizontal: 5),
+            
+                          child: Column(
+                            
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                FadeInRight(
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(15),
+                                    child: FadeInImage(
+                                      image: NetworkImage(
+                                      actor.profilePath != ''? actor.profilePath : 'https://vectorified.com/images/no-profile-picture-icon-38.jpg',
+                                    ),
+                                      fit: BoxFit.cover,
+                                      width:135, 
+                                      height: 180,
+                                      placeholder: const AssetImage('assets/loaders/bottle-loader.gif'),
+                                      ) 
+                                    
+                                 
+                                      ),
+                                  ),
+                               const SizedBox(height: 5,),
+                                Text(actor.name,maxLines: 2, ),
+                                Text(actor.character?? '',maxLines: 1,style: const TextStyle(fontWeight: FontWeight.bold), overflow: TextOverflow.ellipsis,)
+            
+                              ],
+                            ),
+                          
+                          );
+                        
+                        }),
+                    
+                ),
+          ],
+        ),
+      
+    );
   }
 }
 final isFavoriteFutureProvider = FutureProvider.family.autoDispose((ref, int movieId) { //el.family para pasar un argumento y el .autodispose para reiniciar al estado inicial cada vez que vuelva a entrar en la vista
@@ -280,9 +295,11 @@ class _CustomSliverAppBar extends ConsumerWidget {
           children: [
 
             SizedBox.expand(
+            
              child: Image.network(
               movie.posterPath,
              fit: BoxFit.cover,
+             
              loadingBuilder: (context, child, loadingProgress) {
                
                if(loadingProgress != null)return const SizedBox();

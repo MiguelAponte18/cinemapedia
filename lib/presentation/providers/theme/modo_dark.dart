@@ -25,13 +25,12 @@ final movie =  await localStorage.isThemeDark();
     isDarkMode: movie
   );
  }
+
+
 void toggleDarkTheme()async{
-    
-// await localStorage.toggleThemeDark();
-final movie =  await localStorage.isThemeDark();
-// print(movie);
-  state =   state.copyWith(
-    isDarkMode: movie
-  );
+ await localStorage.toggleThemeDark();
+ 
+  activarModo();
 }
+
  }

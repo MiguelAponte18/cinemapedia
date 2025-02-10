@@ -18,7 +18,7 @@ class HomeViewState extends ConsumerState<HomeView> with AutomaticKeepAliveClien
   @override
   void initState() {
     super.initState();
-    ref.read(modoDarkProvider.notifier).activarModo();
+    ref.read(modoDarkProvider.notifier).activarModo();  //activando el tema al cargar la pagina si esta guardado en la base de datos
     //como estoy dentro de un metodo es un read
 
     ref.read(nowPlayingMoviesProvider.notifier).loadNextPage();
@@ -70,7 +70,7 @@ class HomeViewState extends ConsumerState<HomeView> with AutomaticKeepAliveClien
                     MovieHorizontalListview(
                       movies: nowPlayingMovies,
                       title: 'En cines',
-                      subTitle: 'Lunes 20',
+                      subTitle: 'Hoy',
                       loadNextPage: () => ref
                           .read(nowPlayingMoviesProvider.notifier)
                           .loadNextPage(), //el.red lo usamos cuando estamos dentro de callbacks o metodos
@@ -79,7 +79,6 @@ class HomeViewState extends ConsumerState<HomeView> with AutomaticKeepAliveClien
                     MovieHorizontalListview(
                       movies: upComingMovies,
                       title: 'Proximamente',
-                      subTitle: 'En este mes',
                       loadNextPage: () => ref
                           .read(upComingMoviesProvider.notifier)
                           .loadNextPage(), //el.red lo usamos cuando estamos dentro de callbacks o metodos

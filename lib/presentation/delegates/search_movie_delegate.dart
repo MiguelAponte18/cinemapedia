@@ -144,18 +144,20 @@ _onQueryChange(query);
 
 
 class _MovieView extends StatelessWidget {
-  const _MovieView({super.key, required this.movie, required this.onTapClose});
+  const _MovieView({ required this.movie, required this.onTapClose});
 final Movie movie;
 final Function onTapClose;
   @override
   Widget build(BuildContext context) {
     final textStyle= Theme.of(context).textTheme;
     final size = MediaQuery.of(context).size;
-
+   //para no mostrar la pelicula en caso de que no tenga poster 
+    if(movie.posterPath== 'https://linnea.com.ar/wp-content/uploads/2018/09/404PosterNotFoundReverse.jpg')return const SizedBox();
+   
     return GestureDetector(
       onTap: () =>onTapClose(context,movie) ,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -163,17 +165,20 @@ final Function onTapClose;
             //image
             SizedBox(
               width: size.width *0.2,
+              height: size.width*0.3,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.network(
-                  movie.posterPath,
+                child: FadeInImage(
+                  placeholder: const AssetImage('assets/loaders/bottle-loader.gif') ,
                   fit: BoxFit.cover,
-                  loadingBuilder: (context, child, loadingProgress) {
-                    if(loadingProgress != null) return const Center(child: CircularProgressIndicator());
-                    return FadeIn(child: child);
-      
-                  },
-                ),
+                  
+                 image: NetworkImage(
+                    
+                  movie.posterPath,
+                
+                   )
+                   ) 
+              
               ),
             ),
       

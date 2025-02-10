@@ -40,9 +40,11 @@ class _VideoList extends StatelessWidget {
      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
           child: Text('Videos',style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
         ),
+        //* Aunque tengo varios videos, sólo quiero mostrar el primero
+
         _YoutubeVideoPlayer(name:videos.first.name, youtubeKey: videos.first.youtubeKey, ),
 
       ],
@@ -88,12 +90,12 @@ class __YoutubeVideoPlayerState extends State<_YoutubeVideoPlayer> {
   
   @override
   Widget build(BuildContext context) {
+      
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(widget.name),
+        children: [          
           YoutubePlayer(controller: _controller)
         ],
       ),
