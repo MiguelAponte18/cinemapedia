@@ -25,13 +25,13 @@ com.example.cinemapedia.app-fragment-1.7.1-23 C:\Users\apont\.gradle\caches\tran
 com.example.cinemapedia.app-webkit-1.12.0-24 C:\Users\apont\.gradle\caches\transforms-3\d6d6009e857317b829d1ac895e77c15a\transformed\webkit-1.12.0\res
 com.example.cinemapedia.app-jetified-tracing-1.2.0-25 C:\Users\apont\.gradle\caches\transforms-3\e896b9ac412a8814559a776dc7b5a420\transformed\jetified-tracing-1.2.0\res
 com.example.cinemapedia.app-appcompat-1.6.1-26 C:\Users\apont\.gradle\caches\transforms-3\f3e01c95a04b87be1a2f2ed87103c6d5\transformed\appcompat-1.6.1\res
-com.example.cinemapedia.app-debug-27 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\app\src\debug\res
-com.example.cinemapedia.app-main-28 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\app\src\main\res
-com.example.cinemapedia.app-pngs-29 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\app\generated\res\pngs\debug
-com.example.cinemapedia.app-resValues-30 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\app\generated\res\resValues\debug
-com.example.cinemapedia.app-packageDebugResources-31 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\app\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.cinemapedia.app-packageDebugResources-32 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\app\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.cinemapedia.app-merged_res-33 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\app\intermediates\merged_res\debug
-com.example.cinemapedia.app-packaged_res-34 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\flutter_inappwebview_android\intermediates\packaged_res\debug
-com.example.cinemapedia.app-packaged_res-35 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\isar_flutter_libs\intermediates\packaged_res\debug
-com.example.cinemapedia.app-packaged_res-36 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\path_provider_android\intermediates\packaged_res\debug
+com.example.cinemapedia.app-debug-27 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia - Copia\android\app\src\debug\res
+com.example.cinemapedia.app-main-28 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia - Copia\android\app\src\main\res
+com.example.cinemapedia.app-pngs-29 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia - Copia\build\app\generated\res\pngs\debug
+com.example.cinemapedia.app-resValues-30 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia - Copia\build\app\generated\res\resValues\debug
+com.example.cinemapedia.app-packageDebugResources-31 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia - Copia\build\app\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.cinemapedia.app-packageDebugResources-32 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia - Copia\build\app\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.cinemapedia.app-merged_res-33 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia - Copia\build\app\intermediates\merged_res\debug
+com.example.cinemapedia.app-packaged_res-34 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia - Copia\build\flutter_inappwebview_android\intermediates\packaged_res\debug
+com.example.cinemapedia.app-packaged_res-35 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia - Copia\build\isar_flutter_libs\intermediates\packaged_res\debug
+com.example.cinemapedia.app-packaged_res-36 C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia - Copia\build\path_provider_android\intermediates\packaged_res\debug

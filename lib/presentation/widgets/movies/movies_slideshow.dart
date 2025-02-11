@@ -90,18 +90,20 @@ class _Slide extends ConsumerWidget {
             )
             
           ),
-          Padding(
-            padding:const EdgeInsets.only(bottom: 3),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: const CustomGradient(
-                begin: AlignmentDirectional.topCenter,
-                 end: AlignmentDirectional.bottomCenter,
-                  stops: [0.5, 1.0],
-                 colors: [
-                   Colors.transparent,
-                   Colors.black87,
-                 ]),
+          Positioned(
+            child: Padding(
+              padding:const EdgeInsets.only(bottom: 3),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: const CustomGradient(
+                  begin: AlignmentDirectional.topCenter,
+                   end: AlignmentDirectional.bottomCenter,
+                    stops: [0.5, 1.0],
+                   colors: [
+                     Colors.transparent,
+                     Colors.black87,
+                   ]),
+              ),
             ),
           ),
           Positioned(
