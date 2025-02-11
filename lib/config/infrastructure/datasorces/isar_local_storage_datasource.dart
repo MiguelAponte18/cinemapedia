@@ -97,13 +97,11 @@ final dir = await getApplicationDocumentsDirectory();
     .findFirst();
 
       if(favoriteMovie == null){
-        print('entro');
        isar.writeTxnSync(() => isar.themeDarks.putSync(ThemeDark(isDark: true)));//lo borramos el id que le asigno isar
       return;
       }
      
      favoriteMovie.isDark = !favoriteMovie.isDark;
-     print(favoriteMovie.isDark);
      isar.writeTxnSync(() => isar.themeDarks.putSync(favoriteMovie));//lo borramos el id que le asigno isar
 
 

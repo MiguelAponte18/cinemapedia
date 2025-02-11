@@ -47,7 +47,6 @@ class _Slide extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isdark = ref.watch(modoDarkProvider).isDarkMode;
     final decoration = BoxDecoration(
-    
     borderRadius: BorderRadius.circular(20),
     boxShadow: [
       BoxShadow(
@@ -60,66 +59,73 @@ class _Slide extends ConsumerWidget {
   );
 
 
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 30),
-      child: Stack(
-        children: [
-          DecoratedBox(
-          decoration: decoration,
-          child: ClipRRect(//para hacer los bordes redondeados
-            borderRadius: BorderRadius.circular(20),
-            child: Image.network(
-              movie.backdropPath,
-               fit: BoxFit.cover,
-               loadingBuilder: (context, child, loadingProgress) {
-                 if(loadingProgress!= null){
-                  return const DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: Colors.black12
-                    )
-                    );    
-                 }
-                  return GestureDetector(
-                  onTap: () => context.push('/home/0/movie/${movie.id}'),  //asignandole la navegacion a la imagen con el paramtro de la id de la pelicula
-                   child: FadeIn(child: child)//retorna la imagen,
-                  );
-                  
-                   
-               },
-            )
-            )
-            
-          ),
-          Positioned(
-            child: Padding(
-              padding:const EdgeInsets.only(bottom: 3),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: const CustomGradient(
-                  begin: AlignmentDirectional.topCenter,
-                   end: AlignmentDirectional.bottomCenter,
-                    stops: [0.5, 1.0],
-                   colors: [
-                     Colors.transparent,
-                     Colors.black87,
-                   ]),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 15,
-            bottom: 20,
-            child: Text(movie.title,style: const TextStyle(
-              color: Colors.white,
-              shadows: [
-                Shadow(
-                  offset: Offset(2.0,2.0),
-                  blurRadius: 4.0,
-                  color:Color.fromARGB(225, 0, 0, 0)
+    return  Padding(
+        padding: const EdgeInsets.only(bottom: 30),
+        child: GestureDetector(
+        onTap: () => context.push('/home/0/movie/${movie.id}'),  //asignandole la navegacion a la imagen con el paramtro de la id de la pelicula
 
-              )]),))
-        ]
-      ),
+          child: Stack(
+            alignment: AlignmentDirectional.center,
+            children: [
+              DecoratedBox(
+              
+              decoration: decoration,
+              child: ClipRRect(//para hacer los bordes redondeados
+                borderRadius: BorderRadius.circular(20),
+                child: Image.network(
+                  height: 160,
+                  movie.backdropPath,
+                   fit: BoxFit.cover,
+                   loadingBuilder: (context, child, loadingProgress) {
+                     if(loadingProgress!= null){
+                      return const DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: Colors.black12
+                        )
+                        );    
+                     }
+                      return FadeIn(child: child);//retorna la imagen,
+                      
+                      
+                       
+                   },
+                )
+                )
+                
+              ),
+              Positioned(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: const SizedBox(
+                      height: 160,
+                      child: CustomGradient(
+                        begin: AlignmentDirectional.topCenter,
+                         end: AlignmentDirectional.bottomCenter,
+                          stops: [0.5, 1.0],
+                         colors: [
+                           Colors.transparent,
+                           Colors.black87,
+                         ]),
+                    ),
+                  ),
+              
+              ),
+              Positioned(
+                left: 15,
+                bottom: 20,
+                child: Text(movie.title,style: const TextStyle(
+                  color: Colors.white,
+                  shadows: [
+                    Shadow(
+                      offset: Offset(2.0,2.0),
+                      blurRadius: 4.0,
+                      color:Color.fromARGB(225, 0, 0, 0)
+                
+                  )]),))
+            ]
+          ),
+        ),
+  
     );
   }
 }
