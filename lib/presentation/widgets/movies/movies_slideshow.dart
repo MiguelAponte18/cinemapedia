@@ -20,7 +20,7 @@ final List<Movie> movies;
       width: double.infinity,
       child: Swiper(
         scale: 0.9,//la escala de los siguientes
-        viewportFraction: 0.8, //la visualicacion de los siguientes, entre mas bajo, mas se van a ver los slide proximos
+        viewportFraction: 0.75, //la visualicacion de los siguientes, entre mas bajo, mas se van a ver los slide proximos
         pagination: SwiperPagination(//tiene opciones hechas ya, pero esta es //para hacer la paginacion personalisada
           margin: const EdgeInsets.only(top: 0),
           builder: DotSwiperPaginationBuilder(//trabajos apartir de este diseño
@@ -45,6 +45,7 @@ class _Slide extends ConsumerWidget {
   
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final ancho = MediaQuery.of(context).size.width;
     final isdark = ref.watch(modoDarkProvider).isDarkMode;
     final decoration = BoxDecoration(
     borderRadius: BorderRadius.circular(20),
@@ -74,6 +75,7 @@ class _Slide extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(
                   height: 160,
+                  width:  ancho*0.77 ,
                   movie.backdropPath,
                    fit: BoxFit.cover,
                    loadingBuilder: (context, child, loadingProgress) {
@@ -96,9 +98,10 @@ class _Slide extends ConsumerWidget {
               Positioned(
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                    child: const SizedBox(
+                    child:  SizedBox(
                       height: 160,
-                      child: CustomGradient(
+                      width: ancho*0.77,
+                      child: const CustomGradient(
                         begin: AlignmentDirectional.topCenter,
                          end: AlignmentDirectional.bottomCenter,
                           stops: [0.5, 1.0],

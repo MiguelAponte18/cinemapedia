@@ -16,13 +16,26 @@ allprojects {
                  }
 }
 
-rootProject.buildDir = "../build"
+subprojects {
+    afterEvaluate { project ->
+        if (project.plugins.hasPlugin("com.android.application") ||
+                project.plugins.hasPlugin("com.android.library")) {
+            project.android {
+                compileSdkVersion 34                
+            }
+        }
+    }
+}
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
+   
 }
 subprojects {
-    project.evaluationDependsOn(":app")
+ project.evaluationDependsOn(':app')
 }
+
+rootProject.buildDir = "../build"
+
 
 tasks.register("clean", Delete) {
     delete rootProject.buildDir

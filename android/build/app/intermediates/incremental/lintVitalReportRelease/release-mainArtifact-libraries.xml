@@ -1,12 +1,55 @@
 <libraries>
   <library
-      name="__local_aars__:C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\build\app\intermediates\flutter\release\libs.jar:unspecified@jar"
-      jars="C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\build\app\intermediates\flutter\release\libs.jar"
-      resolved="__local_aars__:C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\build\app\intermediates\flutter\release\libs.jar:unspecified"/>
+      name="__local_aars__:C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\app\intermediates\flutter\release\libs.jar:unspecified@jar"
+      jars="C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\app\intermediates\flutter\release\libs.jar"
+      resolved="__local_aars__:C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\app\intermediates\flutter\release\libs.jar:unspecified"/>
   <library
-      name="io.flutter:flutter_embedding_release:1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d@jar"
-      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\io.flutter\flutter_embedding_release\1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d\df73e65ae682c635df1524a146b7d0dcb41f1460\flutter_embedding_release-1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d.jar"
-      resolved="io.flutter:flutter_embedding_release:1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d"/>
+      name="C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android@@:flutter_inappwebview_android::release"
+      jars="C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\flutter_inappwebview_android\.transforms\a8906d724bad46cb0aa26eaf9387bfaf\transformed\out\jars\classes.jar;C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\flutter_inappwebview_android\.transforms\a8906d724bad46cb0aa26eaf9387bfaf\transformed\out\jars\libs\R.jar"
+      resolved="com.pichillilorenzo.flutter_inappwebview_android:flutter_inappwebview_android:unspecified"
+      folder="C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\flutter_inappwebview_android\.transforms\a8906d724bad46cb0aa26eaf9387bfaf\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android@@:isar_flutter_libs::release"
+      jars="C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\isar_flutter_libs\.transforms\51c6361fbffa1ed7e2f1d4d18a17fdfa\transformed\out\jars\classes.jar;C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\isar_flutter_libs\.transforms\51c6361fbffa1ed7e2f1d4d18a17fdfa\transformed\out\jars\libs\R.jar"
+      resolved="dev.isar.isar_flutter_libs:isar_flutter_libs:unspecified"
+      folder="C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\isar_flutter_libs\.transforms\51c6361fbffa1ed7e2f1d4d18a17fdfa\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android@@:path_provider_android::release"
+      jars="C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\path_provider_android\.transforms\7a668a54850edf030f206893d55acbdd\transformed\out\jars\classes.jar;C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\path_provider_android\.transforms\7a668a54850edf030f206893d55acbdd\transformed\out\jars\libs\R.jar"
+      resolved="io.flutter.plugins.pathprovider:path_provider_android:unspecified"
+      folder="C:\Users\apont\Desktop\aplicaciones flutter\cinemapedia\android\build\path_provider_android\.transforms\7a668a54850edf030f206893d55acbdd\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22@jar"
+      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk7\1.8.22\4dabb8248310d833bb6a8b516024a91fd3d275c\kotlin-stdlib-jdk7-1.8.22.jar"
+      resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22"/>
+  <library
+      name="io.flutter:flutter_embedding_release:1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5@jar"
+      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\io.flutter\flutter_embedding_release\1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5\f6c43158f9203a219312bd674ff9bb50413a0003\flutter_embedding_release-1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5.jar"
+      resolved="io.flutter:flutter_embedding_release:1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5"/>
   <library
       name="androidx.fragment:fragment:1.7.1@aar"
       jars="C:\Users\apont\.gradle\caches\transforms-3\ca4d40f38b71d4c621d36eba6fe2f4a4\transformed\fragment-1.7.1\jars\classes.jar"
@@ -198,19 +241,6 @@
       jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\androidx.lifecycle\lifecycle-common\2.7.0\85334205d65cca70ed0109c3acbd29e22a2d9cb1\lifecycle-common-2.7.0.jar"
       resolved="androidx.lifecycle:lifecycle-common:2.7.0"/>
   <library
-      name="androidx.window:window-java:1.2.0@aar"
-      jars="C:\Users\apont\.gradle\caches\transforms-3\8a650b2c5ea333036303d473a939db42\transformed\jetified-window-java-1.2.0\jars\classes.jar"
-      resolved="androidx.window:window-java:1.2.0"
-      folder="C:\Users\apont\.gradle\caches\transforms-3\8a650b2c5ea333036303d473a939db42\transformed\jetified-window-java-1.2.0"
-      manifest="AndroidManifest.xml"
-      resFolder="res"
-      assetsFolder="assets"
-      lintJar="lint.jar"
-      publicResources="public.txt"
-      symbolFile="R.txt"
-      externalAnnotations="annotations.zip"
-      proguardRules="proguard.txt"/>
-  <library
       name="androidx.window:window:1.2.0@aar"
       jars="C:\Users\apont\.gradle\caches\transforms-3\8859fd2468ade3ef2655d1f63d6737f2\transformed\jetified-window-1.2.0\jars\classes.jar"
       resolved="androidx.window:window:1.2.0"
@@ -224,33 +254,18 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar"
-      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlinx\kotlinx-coroutines-core-jvm\1.7.1\63a0779cf668e2a47d13fda7c3b0c4f8dc7762f4\kotlinx-coroutines-core-jvm-1.7.1.jar"
-      resolved="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1"/>
-  <library
-      name="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar"
-      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlinx\kotlinx-coroutines-android\1.7.1\c2d86b569f10b7fc7e28d3f50c0eed97897d77a7\kotlinx-coroutines-android-1.7.1.jar"
-      resolved="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1"/>
-  <library
-      name="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22@jar"
-      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk8\1.8.22\b25c86d47d6b962b9cf0f8c3f320c8a10eea3dd1\kotlin-stdlib-jdk8-1.8.22.jar"
-      resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22"/>
-  <library
-      name="io.flutter:armeabi_v7a_release:1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d@jar"
-      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\io.flutter\armeabi_v7a_release\1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d\ab7ef4b361c85d523e9c6afb46c2ac2ed64e4b58\armeabi_v7a_release-1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d.jar"
-      resolved="io.flutter:armeabi_v7a_release:1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d"/>
-  <library
-      name="io.flutter:arm64_v8a_release:1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d@jar"
-      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\io.flutter\arm64_v8a_release\1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d\b319b608eeb5cb0df717ff54ab0a5d74221d3bd6\arm64_v8a_release-1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d.jar"
-      resolved="io.flutter:arm64_v8a_release:1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d"/>
-  <library
-      name="io.flutter:x86_64_release:1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d@jar"
-      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\io.flutter\x86_64_release\1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d\13699a09c1d6e9292d615365674ef0967ad9d261\x86_64_release-1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d.jar"
-      resolved="io.flutter:x86_64_release:1.0.0-cb4b5fff73850b2e42bd4de7cb9a4310a78ac40d"/>
-  <library
-      name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22@jar"
-      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk7\1.8.22\4dabb8248310d833bb6a8b516024a91fd3d275c\kotlin-stdlib-jdk7-1.8.22.jar"
-      resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22"/>
+      name="androidx.window:window-java:1.2.0@aar"
+      jars="C:\Users\apont\.gradle\caches\transforms-3\8a650b2c5ea333036303d473a939db42\transformed\jetified-window-java-1.2.0\jars\classes.jar"
+      resolved="androidx.window:window-java:1.2.0"
+      folder="C:\Users\apont\.gradle\caches\transforms-3\8a650b2c5ea333036303d473a939db42\transformed\jetified-window-java-1.2.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
   <library
       name="androidx.annotation:annotation-experimental:1.4.0@aar"
       jars="C:\Users\apont\.gradle\caches\transforms-3\c4537ab9015740d05f09a422063523a5\transformed\jetified-annotation-experimental-1.4.0\jars\classes.jar"
@@ -312,17 +327,37 @@
       jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\androidx.collection\collection\1.1.0\1f27220b47669781457de0d600849a5de0e89909\collection-1.1.0.jar"
       resolved="androidx.collection:collection:1.1.0"/>
   <library
-      name="androidx.annotation:annotation-jvm:1.8.0@jar"
-      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\androidx.annotation\annotation-jvm\1.8.0\b8a16fe526014b7941c1debaccaf9c5153692dbb\annotation-jvm-1.8.0.jar"
-      resolved="androidx.annotation:annotation-jvm:1.8.0"/>
+      name="androidx.annotation:annotation-jvm:1.9.1@jar"
+      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\androidx.annotation\annotation-jvm\1.9.1\b17951747e38bf3986a24431b9ba0d039958aa5f\annotation-jvm-1.9.1.jar"
+      resolved="androidx.annotation:annotation-jvm:1.9.1"/>
   <library
-      name="org.jetbrains.kotlin:kotlin-stdlib:1.8.22@jar"
-      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.8.22\636bf8b320e7627482771bbac9ed7246773c02bd\kotlin-stdlib-1.8.22.jar"
-      resolved="org.jetbrains.kotlin:kotlin-stdlib:1.8.22"/>
+      name="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar"
+      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlinx\kotlinx-coroutines-android\1.7.1\c2d86b569f10b7fc7e28d3f50c0eed97897d77a7\kotlinx-coroutines-android-1.7.1.jar"
+      resolved="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1"/>
   <library
-      name="org.jetbrains.kotlin:kotlin-stdlib-common:1.8.22@jar"
-      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-common\1.8.22\1a8e3601703ae14bb58757ea6b2d8e8e5935a586\kotlin-stdlib-common-1.8.22.jar"
-      resolved="org.jetbrains.kotlin:kotlin-stdlib-common:1.8.22"/>
+      name="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar"
+      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlinx\kotlinx-coroutines-core-jvm\1.7.1\63a0779cf668e2a47d13fda7c3b0c4f8dc7762f4\kotlinx-coroutines-core-jvm-1.7.1.jar"
+      resolved="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1"/>
+  <library
+      name="org.jetbrains.kotlin:kotlin-stdlib:1.9.24@jar"
+      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.9.24\9928532f12c66ad816a625b3f9984f8368ca6d2b\kotlin-stdlib-1.9.24.jar"
+      resolved="org.jetbrains.kotlin:kotlin-stdlib:1.9.24"/>
+  <library
+      name="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22@jar"
+      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk8\1.8.22\b25c86d47d6b962b9cf0f8c3f320c8a10eea3dd1\kotlin-stdlib-jdk8-1.8.22.jar"
+      resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22"/>
+  <library
+      name="io.flutter:armeabi_v7a_release:1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5@jar"
+      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\io.flutter\armeabi_v7a_release\1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5\b04f61064f7dd1113039047e4f9a1514a8475cfc\armeabi_v7a_release-1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5.jar"
+      resolved="io.flutter:armeabi_v7a_release:1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5"/>
+  <library
+      name="io.flutter:arm64_v8a_release:1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5@jar"
+      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\io.flutter\arm64_v8a_release\1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5\b213a6caedac4ced199fbf4a8536482fb8cb319a\arm64_v8a_release-1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5.jar"
+      resolved="io.flutter:arm64_v8a_release:1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5"/>
+  <library
+      name="io.flutter:x86_64_release:1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5@jar"
+      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\io.flutter\x86_64_release\1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5\4b5f20c3891e93eff6e446f5346d3d04c323ab89\x86_64_release-1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5.jar"
+      resolved="io.flutter:x86_64_release:1.0.0-82bd5b7209295a5b7ff8cae0df96e7870171e3a5"/>
   <library
       name="org.jetbrains:annotations:23.0.0@jar"
       jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\23.0.0\8cc20c07506ec18e0834947b84a864bfc094484e\annotations-23.0.0.jar"
@@ -367,6 +402,136 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name="androidx.appcompat:appcompat-resources:1.6.1@aar"
+      jars="C:\Users\apont\.gradle\caches\transforms-3\9b797759c9b54ab0b27bb9b4753d9cda\transformed\jetified-appcompat-resources-1.6.1\jars\classes.jar"
+      resolved="androidx.appcompat:appcompat-resources:1.6.1"
+      folder="C:\Users\apont\.gradle\caches\transforms-3\9b797759c9b54ab0b27bb9b4753d9cda\transformed\jetified-appcompat-resources-1.6.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.appcompat:appcompat:1.6.1@aar"
+      jars="C:\Users\apont\.gradle\caches\transforms-3\f3e01c95a04b87be1a2f2ed87103c6d5\transformed\appcompat-1.6.1\jars\classes.jar"
+      resolved="androidx.appcompat:appcompat:1.6.1"
+      folder="C:\Users\apont\.gradle\caches\transforms-3\f3e01c95a04b87be1a2f2ed87103c6d5\transformed\appcompat-1.6.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.webkit:webkit:1.12.0@aar"
+      jars="C:\Users\apont\.gradle\caches\transforms-3\d6d6009e857317b829d1ac895e77c15a\transformed\webkit-1.12.0\jars\classes.jar"
+      resolved="androidx.webkit:webkit:1.12.0"
+      folder="C:\Users\apont\.gradle\caches\transforms-3\d6d6009e857317b829d1ac895e77c15a\transformed\webkit-1.12.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.browser:browser:1.8.0@aar"
+      jars="C:\Users\apont\.gradle\caches\transforms-3\7f6d20225ac1174a3efad96609161b97\transformed\browser-1.8.0\jars\classes.jar"
+      resolved="androidx.browser:browser:1.8.0"
+      folder="C:\Users\apont\.gradle\caches\transforms-3\7f6d20225ac1174a3efad96609161b97\transformed\browser-1.8.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.swiperefreshlayout:swiperefreshlayout:1.1.0@aar"
+      jars="C:\Users\apont\.gradle\caches\transforms-3\2c581457e999b8a20254719d77d1de93\transformed\swiperefreshlayout-1.1.0\jars\classes.jar"
+      resolved="androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+      folder="C:\Users\apont\.gradle\caches\transforms-3\2c581457e999b8a20254719d77d1de93\transformed\swiperefreshlayout-1.1.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.drawerlayout:drawerlayout:1.0.0@aar"
+      jars="C:\Users\apont\.gradle\caches\transforms-3\2c20b5293e22728da7046407170ca5c0\transformed\drawerlayout-1.0.0\jars\classes.jar"
+      resolved="androidx.drawerlayout:drawerlayout:1.0.0"
+      folder="C:\Users\apont\.gradle\caches\transforms-3\2c20b5293e22728da7046407170ca5c0\transformed\drawerlayout-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.emoji2:emoji2-views-helper:1.2.0@aar"
+      jars="C:\Users\apont\.gradle\caches\transforms-3\62c83fdf4359cdd7e362bc5ed96214f1\transformed\jetified-emoji2-views-helper-1.2.0\jars\classes.jar"
+      resolved="androidx.emoji2:emoji2-views-helper:1.2.0"
+      folder="C:\Users\apont\.gradle\caches\transforms-3\62c83fdf4359cdd7e362bc5ed96214f1\transformed\jetified-emoji2-views-helper-1.2.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.emoji2:emoji2:1.2.0@aar"
+      jars="C:\Users\apont\.gradle\caches\transforms-3\b54c8b34dc2cec64a7baaa02a8a7a5a3\transformed\jetified-emoji2-1.2.0\jars\classes.jar;C:\Users\apont\.gradle\caches\transforms-3\b54c8b34dc2cec64a7baaa02a8a7a5a3\transformed\jetified-emoji2-1.2.0\jars\libs\repackaged.jar"
+      resolved="androidx.emoji2:emoji2:1.2.0"
+      folder="C:\Users\apont\.gradle\caches\transforms-3\b54c8b34dc2cec64a7baaa02a8a7a5a3\transformed\jetified-emoji2-1.2.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.vectordrawable:vectordrawable-animated:1.1.0@aar"
+      jars="C:\Users\apont\.gradle\caches\transforms-3\34e9e272fefd16ac66a87408accf94b7\transformed\vectordrawable-animated-1.1.0\jars\classes.jar"
+      resolved="androidx.vectordrawable:vectordrawable-animated:1.1.0"
+      folder="C:\Users\apont\.gradle\caches\transforms-3\34e9e272fefd16ac66a87408accf94b7\transformed\vectordrawable-animated-1.1.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.vectordrawable:vectordrawable:1.1.0@aar"
+      jars="C:\Users\apont\.gradle\caches\transforms-3\4059a61bdad93a189cb4807e89b6c4ef\transformed\vectordrawable-1.1.0\jars\classes.jar"
+      resolved="androidx.vectordrawable:vectordrawable:1.1.0"
+      folder="C:\Users\apont\.gradle\caches\transforms-3\4059a61bdad93a189cb4807e89b6c4ef\transformed\vectordrawable-1.1.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name="androidx.profileinstaller:profileinstaller:1.3.1@aar"
       jars="C:\Users\apont\.gradle\caches\transforms-3\408a642162969e960684d9c16b2f116a\transformed\jetified-profileinstaller-1.3.1\jars\classes.jar"
       resolved="androidx.profileinstaller:profileinstaller:1.3.1"
@@ -392,6 +557,23 @@
       symbolFile="R.txt"
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
+  <library
+      name="androidx.cursoradapter:cursoradapter:1.0.0@aar"
+      jars="C:\Users\apont\.gradle\caches\transforms-3\ac364ab66752097bb4779d5aeb5f3ac7\transformed\cursoradapter-1.0.0\jars\classes.jar"
+      resolved="androidx.cursoradapter:cursoradapter:1.0.0"
+      folder="C:\Users\apont\.gradle\caches\transforms-3\ac364ab66752097bb4779d5aeb5f3ac7\transformed\cursoradapter-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.resourceinspection:resourceinspection-annotation:1.0.1@jar"
+      jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\androidx.resourceinspection\resourceinspection-annotation\1.0.1\8c21f8ff5d96d5d52c948707f7e4d6ca6773feef\resourceinspection-annotation-1.0.1.jar"
+      resolved="androidx.resourceinspection:resourceinspection-annotation:1.0.1"/>
   <library
       name="androidx.concurrent:concurrent-futures:1.1.0@jar"
       jars="C:\Users\apont\.gradle\caches\modules-2\files-2.1\androidx.concurrent\concurrent-futures\1.1.0\50b7fb98350d5f42a4e49704b03278542293ba48\concurrent-futures-1.1.0.jar"

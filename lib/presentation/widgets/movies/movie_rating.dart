@@ -8,7 +8,7 @@ class MovieRating extends StatelessWidget {
         final textStyles = Theme.of(context).textTheme;
 
     return  SizedBox(
-            width: 150,
+            width: 151,
             child: Row(
               children: [
                  Icon(Icons.star_half_outlined, color: Colors.yellow.shade800),
