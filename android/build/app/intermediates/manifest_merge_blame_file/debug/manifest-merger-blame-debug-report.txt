@@ -60,7 +60,7 @@
 43        android:debuggable="true"
 44        android:extractNativeLibs="true"
 45        android:icon="@mipmap/launcher_icon"
-46        android:label="cinemapedia" >
+46        android:label="Cinemapedia" >
 47        <activity
 48            android:name="com.example.cinemapedia.MainActivity"
 49            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
